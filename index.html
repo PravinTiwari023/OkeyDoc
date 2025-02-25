@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete PDF Toolkit - 100% Free Online PDF Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary: #E41E3F;
+            --secondary: #2196F3;
+            --background: #FFFFFF;
+            --text: #2D3748;
+            --surface: #F7FAFC;
+            --accent: #E2E8F0;
+            --button-text: #FFFFFF;
+        }
+
+        [data-theme="dark"] {
+            --primary: #FF4D6D;
+            --secondary: #63B3ED;
+            --background: #0F172A;
+            --text: #F8FAFC;
+            --surface: #1E293B;
+            --accent: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--surface);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(45deg, var(--surface), var(--background));
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        a.tool-card:visited {
+            color: inherit; /* Keep same color for visited links */
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--surface);
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Every Tool You Need to Work with PDFs</h1>
+            <p>All-in-one PDF solution completely free and easy to use! Merge, split, compress, convert, edit, and secure PDFs with just a few clicks.</p>
+        </div>
+    </section>
+
+    <div class="tools-grid">
+        <!-- PDF Tools -->
+        <a href="pdf_merge.html" class="tool-card">
+            <i class="tool-icon fas fa-copy"></i>
+            <h3>Merge PDF</h3>
+            <p>Combine multiple PDF files into one document in desired order</p>
+        </a>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-cut"></i>
+            <h3>Split PDF</h3>
+            <p>Divide PDF into individual pages or extract specific ranges</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-compress"></i>
+            <h3>Compress PDF</h3>
+            <p>Reduce file size while maintaining optimal quality</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-file-word"></i>
+            <h3>PDF to Word</h3>
+            <p>Convert PDFs to editable DOC/DOCX documents</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-file-powerpoint"></i>
+            <h3>PDF to PowerPoint</h3>
+            <p>Transform PDFs into editable PPT/PPTX presentations</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-file-excel"></i>
+            <h3>PDF to Excel</h3>
+            <p>Extract data from PDF tables to Excel spreadsheets</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-lock"></i>
+            <h3>Protect PDF</h3>
+            <p>Add password protection to secure your documents</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-lock-open"></i>
+            <h3>Unlock PDF</h3>
+            <p>Remove password security from PDF files</p>
+        </div>
+
+        <div class="tool-card">
+            <i class="tool-icon fas fa-edit"></i>
+            <h3>Edit PDF</h3>
+            <p>Add text, images, annotations and modify content</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 PDF Tools. All rights reserved. 
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        // Theme Toggle Script
+        const themeToggle = document.getElementById('themeToggle');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            themeToggle.innerHTML = isDark 
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+            document.body.setAttribute('data-theme', isDark ? 'dark' : '');
+        });
+    </script>
+</body>
+</html>
