@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Icon/square.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF page removal tool - Remove specific pages from your PDF files securely. No watermarks, fast and easy to use.">
+    <meta name="keywords" content="remove pdf pages, delete pdf pages, pdf page remover, free pdf tool, online pdf editor">
+    <meta name="theme-color" content="#E41E3F">
+    <meta property="og:title" content="PDF Page Removal Tool - Remove Pages from PDF Online for Free">
+    <meta property="og:description" content="Remove specific pages from your PDF files with our free online tool. Secure processing, no watermarks or registration required.">
+    <meta property="og:type" content="website">
+    <title>PDF Page Removal Tool - Remove Pages from PDF Online for Free | PDF Tools</title>
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PDF Page Removal Tool",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Free online tool to remove pages from PDF files",
+        "url": "https://yourdomain.com/pdf-remove-pages",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Split/pdf_split_style.css') }}">
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('page.home') }}" class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Remove Pages from Your PDF</h1>
+            <p class="lead">Select and remove specific pages from your PDF files quickly and securely. Our free online tool preserves document quality with no watermarks.</p>
+        </header>
+
+        <div class="pdf-tool">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-trash-alt"></i>
+                <p>Drag and drop a PDF file here or click to select</p>
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <div class="file-header">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name" id="fileName">document.pdf</div>
+                </div>
+                <div class="file-details">
+                    <div id="fileSize">0 KB</div>
+                    <div>|</div>
+                    <div id="pageCount">0 pages</div>
+                </div>
+                <div class="page-preview" id="pagePreview"></div>
+            </div>
+
+            <div class="split-options" id="splitOptions">
+                <div class="option-title">Page Removal Options</div>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="removeType" value="range" checked>
+                        Remove specific pages
+                    </label>
+                    <div id="rangeInputContainer">
+                        <input type="text" id="pageRangeInput" class="page-range-input" placeholder="e.g., 1-3, 5, 7-9">
+                        <p class="instructions">Enter page numbers and/or page ranges separated by commas (e.g., 1-3, 5, 7-9)</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="removeBtn" class="btn" disabled>Remove Pages</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 PDF Tools. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="{{ url_for('static', filename='Remove/remove_pages_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='/Theme/theme_toggle.js') }}"></script>
+</body>
+</html>

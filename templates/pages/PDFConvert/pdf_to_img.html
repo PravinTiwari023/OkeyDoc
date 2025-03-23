@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert PDF to Images - Free Online Tool</title>
+    <meta name="description" content="Convert PDF pages to images online. Supports JPG, PNG formats. Free, fast, and secure.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebApplication",
+        "name": "PDF to Image Converter",
+        "description": "Convert PDF pages to images online. Free and easy to use.",
+        "url": "{{ url_for('page.pdf_to_image', _external=True) }}",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Pdf2Img/pdf2img_style.css') }}">
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('page.home') }}" class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Convert PDF to Images</h1>
+            <p class="lead">Transform your PDF pages into high-quality images. Support for JPG and PNG formats. Choose quality and format for the perfect result.</p>
+        </header>
+
+        <div class="pdf-tool">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-file-pdf"></i>
+                <p>Drag and drop PDF file here or click to select</p>
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <div class="file-header">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name" id="fileName">document.pdf</div>
+                </div>
+                <div class="file-details">
+                    <div id="fileSize">0 KB</div>
+                    <div>|</div>
+                    <div id="pageCount">0 pages</div>
+                </div>
+            </div>
+
+            <div class="convert-options" id="convertOptions">
+                <div class="option-title">Image Settings</div>
+                <div class="option-group">
+                    <label for="imageFormat">Image Format</label>
+                    <select id="imageFormat" class="form-select">
+                        <option value="jpg">JPG</option>
+                        <option value="png">PNG</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label for="imageQuality">Image Quality</label>
+                    <select id="imageQuality" class="form-select">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label for="dpi">DPI (Resolution)</label>
+                    <select id="dpi" class="form-select">
+                        <option value="300">300 DPI (High)</option>
+                        <option value="200">200 DPI (Medium)</option>
+                        <option value="150">150 DPI (Low)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pages-container" id="pagePreview"></div>
+
+            <button id="convertBtn" class="btn" disabled>Convert to Images</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 PDF Tools. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="/static/Pdf2Img/pdf2img_script.js"></script>
+    <script src="/static/Theme/theme_toggle.js"></script>
+</body>
+</html>

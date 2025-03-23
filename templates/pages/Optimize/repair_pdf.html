@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Icon/square.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF repair tool - Fix corrupted PDF files securely. No watermarks, fast and easy to use.">
+    <meta name="keywords" content="repair pdf, fix pdf, corrupted pdf, pdf repair, free pdf tool, online pdf repair">
+    <meta name="theme-color" content="#E41E3F">
+    <meta property="og:title" content="PDF Repair Tool - Fix Corrupted PDF Files Online for Free">
+    <meta property="og:description" content="Fix corrupted PDF files with our free online tool. Secure processing, no watermarks or registration required.">
+    <meta property="og:type" content="website">
+    <title>PDF Repair Tool - Fix Corrupted PDF Files Online for Free | PDF Tools</title>
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PDF Repair Tool",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Free online tool to fix corrupted PDF files",
+        "url": "https://yourdomain.com/pdf-repair",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}?v=1.0.1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Repair/repair_pdf_style.css') }}?v=1.0.1">
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('page.home') }}" class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Repair Your PDF Files</h1>
+            <p class="lead">Fix corrupted PDF files quickly and securely. Our free online tool attempts to recover damaged content with no watermarks.</p>
+        </header>
+
+        <div class="pdf-tool">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-wrench"></i>
+                <p>Drag and drop a PDF file here or click to select</p>
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <div class="file-header">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name" id="fileName">document.pdf</div>
+                </div>
+                <div class="file-details">
+                    <div id="fileSize">0 KB</div>
+                    <div>|</div>
+                    <div id="fileType">PDF</div>
+                </div>
+            </div>
+
+            <div class="repair-status" id="repairStatus">
+                <h3 id="statusTitle">Analyzing PDF...</h3>
+                <p id="statusMessage">We're examining your PDF file to identify issues.</p>
+                <div class="repair-progress">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="repair-details" id="repairDetails" style="display: none;">
+                <h3>Repair Details</h3>
+                <ul id="issuesList">
+                    <!-- Issues will be added here dynamically -->
+                </ul>
+            </div>
+
+            <button id="repairBtn" class="btn" disabled>Repair PDF</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 PDF Tools. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="{{ url_for('static', filename='Repair/repair_pdf_script.js') }}?v=1.0.1"></script>
+    <script src="{{ url_for('static', filename='/Theme/theme_toggle.js') }}"></script>
+</body>
+</html>

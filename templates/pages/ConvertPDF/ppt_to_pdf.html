@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Icon/square.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert PowerPoint to PDF - Free Online Tool</title>
+    <meta name="description" content="Convert PowerPoint presentations to PDF online. Supports PPT, PPTX formats. Free, fast, and secure.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebApplication",
+        "name": "PowerPoint to PDF Converter",
+        "description": "Convert PowerPoint presentations to PDF online. Free and easy to use.",
+        "url": "{{ url_for('page.ppt_to_pdf', _external=True) }}",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Ppt2Pdf/ppt2pdf_style.css') }}">
+    
+    <!-- Required Libraries for PowerPoint to PDF conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('page.home') }}" class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Convert PowerPoint to PDF</h1>
+            <p class="lead">Transform your PowerPoint presentations into professional PDF files. Support for PPT and PPTX formats. Maintain animations, transitions, and layout for perfect results.</p>
+        </header>
+
+        <div class="pdf-tool">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-file-powerpoint"></i>
+                <p>Drag and drop PowerPoint presentations here or click to select</p>
+                <input type="file" id="fileInput" accept=".ppt,.pptx" multiple hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <div class="file-header">
+                    <i class="fas fa-file-powerpoint"></i>
+                    <div class="file-name" id="fileName">Selected Presentations</div>
+                </div>
+                <div class="file-details">
+                    <div id="fileCount">0 presentations</div>
+                    <div>|</div>
+                    <div id="totalSize">0 KB</div>
+                </div>
+            </div>
+
+            <div class="organize-options" id="organizeOptions">
+                <div class="option-title">PDF Settings</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="qualityHigh" name="quality" value="high" checked>
+                        <label for="qualityHigh">High Quality</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="qualityMedium" name="quality" value="medium">
+                        <label for="qualityMedium">Medium Quality</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="qualityLow" name="quality" value="low">
+                        <label for="qualityLow">Low Quality (Smaller File Size)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pages-container" id="presentationPreview"></div>
+
+            <button id="convertBtn" class="btn" disabled>Convert to PDF</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 PDF Tools. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ url_for('static', filename='Ppt2Pdf/ppt2pdf_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='Theme/theme_toggle.js') }}"></script>
+</body>
+</html>

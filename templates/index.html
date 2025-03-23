@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Icon/square.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF tools: merge, split, compress, convert, edit, and secure PDFs with just a few clicks">
+    <meta name="theme-color" content="#E41E3F">
+    <meta property="og:title" content="Complete PDF Toolkit - 100% Free Online PDF Tools">
+    <meta property="og:description" content="All-in-one PDF solution completely free and easy to use!">
+    <meta property="og:type" content="website">
+    <title>PDF Toolkit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Every Tool You Need to Work with PDFs</h1>
+            <p>All-in-one PDF solution completely free and easy to use! Merge, split, compress, convert, edit, and secure PDFs with just a few clicks.</p>
+            <div class="hero-buttons">
+                <a href="#organize" class="btn">Organize PDF</a>
+                <a href="#optimize" class="btn">Optimize PDF</a>
+                <a href="#convert-to" class="btn">Convert to PDF</a>
+                <a href="#convert-from" class="btn">Convert from PDF</a>
+                <a href="#edit" class="btn">Edit PDF</a>
+                <a href="#security" class="btn">PDF Security</a>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="organize">Organize PDF</h2>
+    <div class="tools-grid">
+        <a href="{{ url_for('page.pdf_merge') }}" class="tool-card">
+            <i class="tool-icon fas fa-copy"></i>
+            <h3>Merge PDF</h3>
+            <p>Combine multiple PDF files into one document in desired order</p>
+        </a>
+
+        <a href="{{ url_for('page.pdf_split') }}" class="tool-card">
+            <i class="tool-icon fas fa-cut"></i>
+            <h3>Split PDF</h3>
+            <p>Divide PDF into individual pages or extract specific ranges</p>
+        </a>
+
+        <a href="{{ url_for('page.remove_pages') }}" class="tool-card">
+            <i class="tool-icon fas fa-trash-alt"></i>
+            <h3>Remove Pages</h3>
+            <p>Delete specific pages from your PDF document</p>
+        </a>
+
+        <a href="{{ url_for('page.extract_pages') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-export"></i>
+            <h3>Extract Pages</h3>
+            <p>Extract specific pages from your PDF as a new document</p>
+        </a>
+
+        <a href="{{ url_for('page.organize_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-sort"></i>
+            <h3>Organize PDF</h3>
+            <p>Rearrange, rotate, and organize pages in your PDF</p>
+        </a>
+    </div>
+
+    <h2 class="section-title" id="optimize">Optimize PDF</h2>
+    <div class="tools-grid">
+        <a href="{{ url_for('page.pdf_compress') }}" class="tool-card">
+            <i class="tool-icon fas fa-compress"></i>
+            <h3>Compress PDF</h3>
+            <p>Reduce file size while maintaining optimal quality</p>
+        </a>
+
+        <a href="{{ url_for('page.repair_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-wrench"></i>
+            <h3>Repair PDF</h3>
+            <p>Fix corrupted PDF files and recover content</p>
+        </a>
+    </div>
+
+    <h2 class="section-title" id="convert-to">Convert to PDF</h2>
+    <div class="tools-grid">
+        <a href="{{ url_for('page.img_to_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-image"></i>
+            <h3>IMG to PDF</h3>
+            <p>Convert JPG, PNG, and other images to PDF format</p>
+        </a>
+
+        <a href="{{ url_for('page.word_to_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-word"></i>
+            <h3>Word to PDF</h3>
+            <p>Convert DOC/DOCX documents to PDF format</p>
+        </a>
+
+        <a href="{{ url_for('page.ppt_to_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-powerpoint"></i>
+            <h3>PPT to PDF</h3>
+            <p>Convert PowerPoint presentations to PDF format</p>
+        </a>
+
+        <a href="{{ url_for('page.excel_to_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-excel"></i>
+            <h3>Excel to PDF</h3>
+            <p>Convert Excel spreadsheets to PDF format</p>
+        </a>
+
+        <a href="{{ url_for('page.html_to_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-code"></i>
+            <h3>HTML to PDF</h3>
+            <p>Convert web pages and HTML files to PDF format</p>
+        </a>
+    </div>
+
+    <h2 class="section-title" id="convert-from">Convert from PDF</h2>
+    <div class="tools-grid">
+        <a href="{{ url_for('page.pdf_to_word') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-word"></i>
+            <h3>PDF to Word</h3>
+            <p>Convert PDFs to editable DOC/DOCX documents</p>
+        </a>
+
+        <a href="{{ url_for('page.pdf_to_ppt') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-powerpoint"></i>
+            <h3>PDF to PowerPoint</h3>
+            <p>Transform PDFs into editable PPT/PPTX presentations</p>
+        </a>
+
+        <a href="{{ url_for('page.pdf_to_excel') }}" class="tool-card">
+            <i class="tool-icon fas fa-file-excel"></i>
+            <h3>PDF to Excel</h3>
+            <p>Extract data from PDF tables to Excel spreadsheets</p>
+        </a>
+
+        <a href="{{ url_for('page.pdf_to_image') }}" class="tool-card">
+            <i class="tool-icon fas fa-images"></i>
+            <h3>PDF to Image</h3>
+            <p>Convert PDF pages to JPG, PNG or other image formats</p>
+        </a>
+    </div>
+
+    <h2 class="section-title" id="edit">Edit PDF</h2>
+    <div class="tools-grid">
+        <a href="{{ url_for('page.edit_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-edit"></i>
+            <h3>Edit PDF</h3>
+            <p>Add text, images, annotations, and modify content</p>
+        </a>
+
+        <a href="{{ url_for('page.rotate_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-redo"></i>
+            <h3>Rotate PDF</h3>
+            <p>Rotate pages to correct orientation in your PDF document</p>
+        </a>
+
+        <a href="{{ url_for('page.add_page_number') }}" class="tool-card">
+            <i class="tool-icon fas fa-list-ol"></i>
+            <h3>Add Page Number</h3>
+            <p>Insert page numbers with customizable position and format</p>
+        </a>
+
+        <a href="{{ url_for('page.add_watermark') }}" class="tool-card">
+            <i class="tool-icon fas fa-tint"></i>
+            <h3>Add Watermark</h3>
+            <p>Apply text or image watermarks to your PDF documents</p>
+        </a>
+    </div>
+
+    <h2 class="section-title" id="security">PDF Security</h2>
+    <div class="tools-grid">
+        <a href="{{ url_for('page.protect_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-lock"></i>
+            <h3>Protect PDF</h3>
+            <p>Add password protection to secure your documents</p>
+        </a>
+
+        <a href="{{ url_for('page.unlock_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-lock-open"></i>
+            <h3>Unlock PDF</h3>
+            <p>Remove password security from PDF files</p>
+        </a>
+
+        <a href="{{ url_for('page.sign_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-signature"></i>
+            <h3>Sign PDF</h3>
+            <p>Add digital signatures to your PDF documents</p>
+        </a>
+
+        <a href="{{ url_for('page.compare_pdf') }}" class="tool-card">
+            <i class="tool-icon fas fa-not-equal"></i>
+            <h3>Compare PDF</h3>
+            <p>Identify differences between two PDF documents</p>
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2024 PDF Tools. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <span class="separator">|</span>
+            <a href="/terms">Terms of Service</a>
+            <span class="separator">|</span>
+            <a href="/contact">Contact Us</a>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='/Theme/theme_toggle.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+:root {
+    --primary: #E41E3F;
+    --primary-dark: #C01737;
+    --primary-light: #F14D69;
+    --secondary: #2196F3;
+    --background: #FFFFFF;
+    --text: #2D3748;
+    --text-secondary: #4A5568;
+    --surface: #F7FAFC;
+    --accent: #E2E8F0;
+    --button-text: #FFFFFF;
+    --error: #E53E3E;
+    --success: #38A169;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary: #FF4D6D;
+    --primary-dark: #E83A59;
+    --primary-light: #FF7A92;
+    --secondary: #63B3ED;
+    --background: #0F172A;
+    --text: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --surface: #1E293B;
+    --accent: #334155;
+    --error: #FC8181;
+    --success: #68D391;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.loading-bar {
+    height: 3px;
+    width: 0;
+    background-color: var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: width 0.3s ease;
+}
+
+.navbar {
+    background: var(--surface);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--primary);
+    color: var(--button-text);
+}

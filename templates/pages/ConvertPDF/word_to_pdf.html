@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Icon/square.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Word to PDF - Free Online Tool</title>
+    <meta name="description" content="Convert Word documents to PDF online. Supports DOC, DOCX formats. Free, fast, and secure.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebApplication",
+        "name": "Word to PDF Converter",
+        "description": "Convert Word documents to PDF online. Free and easy to use.",
+        "url": "{{ url_for('page.word_to_pdf', _external=True) }}",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Word2Pdf/word2pdf_style.css') }}">
+    
+    <!-- Required Libraries for Word to PDF conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('page.home') }}" class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Convert Word to PDF</h1>
+            <p class="lead">Transform your Word documents into professional PDF files. Support for DOC and DOCX formats. Maintain formatting and layout for perfect results.</p>
+        </header>
+
+        <div class="pdf-tool">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-file-word"></i>
+                <p>Drag and drop Word documents here or click to select</p>
+                <input type="file" id="fileInput" accept=".doc,.docx" multiple hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <div class="file-header">
+                    <i class="fas fa-file-word"></i>
+                    <div class="file-name" id="fileName">Selected Documents</div>
+                </div>
+                <div class="file-details">
+                    <div id="fileCount">0 documents</div>
+                    <div>|</div>
+                    <div id="totalSize">0 KB</div>
+                </div>
+            </div>
+
+            <div class="organize-options" id="organizeOptions">
+                <div class="option-title">PDF Settings</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="qualityHigh" name="quality" value="high" checked>
+                        <label for="qualityHigh">High Quality</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="qualityMedium" name="quality" value="medium">
+                        <label for="qualityMedium">Medium Quality</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="qualityLow" name="quality" value="low">
+                        <label for="qualityLow">Low Quality (Smaller File Size)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pages-container" id="documentPreview"></div>
+
+            <button id="convertBtn" class="btn" disabled>Convert to PDF</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 PDF Tools. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ url_for('static', filename='Word2Pdf/word2pdf_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='Theme/theme_toggle.js') }}"></script>
+</body>
+</html>

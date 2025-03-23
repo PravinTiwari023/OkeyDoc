@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Icon/square.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF organizer tool - Rearrange, rotate, and organize pages in your PDF files securely. No watermarks, fast and easy to use.">
+    <meta name="keywords" content="organize pdf, rearrange pdf pages, rotate pdf pages, pdf organizer, free pdf tool, online pdf editor">
+    <meta name="theme-color" content="#E41E3F">
+    <meta property="og:title" content="PDF Organizer Tool - Rearrange and Rotate PDF Pages Online for Free">
+    <meta property="og:description" content="Rearrange, rotate, and organize pages in your PDF files with our free online tool. Secure processing, no watermarks or registration required.">
+    <meta property="og:type" content="website">
+    <title>PDF Organizer Tool - Rearrange and Rotate PDF Pages Online for Free | PDF Tools</title>
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PDF Organizer Tool",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Free online tool to rearrange, rotate, and organize pages in PDF files",
+        "url": "https://yourdomain.com/pdf-organizer",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Theme/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Organize/organize_pdf_style.css') }}">
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('page.home') }}" class="logo">
+                <i class="fas fa-file-pdf"></i>
+                PDF Tools
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Organize Your PDF Pages</h1>
+            <p class="lead">Rearrange, rotate, and organize pages in your PDF files quickly and securely. Our free online tool preserves document quality with no watermarks.</p>
+        </header>
+
+        <div class="pdf-tool">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-sort"></i>
+                <p>Drag and drop a PDF file here or click to select</p>
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <div class="file-header">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name" id="fileName">document.pdf</div>
+                </div>
+                <div class="file-details">
+                    <div id="fileSize">0 KB</div>
+                    <div>|</div>
+                    <div id="pageCount">0 pages</div>
+                </div>
+                <div class="page-preview" id="pagePreview"></div>
+            </div>
+
+            <div class="organize-options" id="organizeOptions">
+                <div class="option-title">Page Organization Options</div>
+                
+                <div class="organize-tools">
+                    <button id="rotateLeftBtn" class="tool-btn" disabled>
+                        <i class="fas fa-undo"></i> Rotate Left
+                    </button>
+                    <button id="rotateRightBtn" class="tool-btn" disabled>
+                        <i class="fas fa-redo"></i> Rotate Right
+                    </button>
+                    <button id="moveUpBtn" class="tool-btn" disabled>
+                        <i class="fas fa-arrow-up"></i> Move Up
+                    </button>
+                    <button id="moveDownBtn" class="tool-btn" disabled>
+                        <i class="fas fa-arrow-down"></i> Move Down
+                    </button>
+                    <button id="deletePageBtn" class="tool-btn" disabled>
+                        <i class="fas fa-trash"></i> Delete Page
+                    </button>
+                </div>
+                
+                <div class="pages-container" id="pagesContainer">
+                    <!-- Page thumbnails will be added here dynamically -->
+                </div>
+            </div>
+
+            <button id="saveBtn" class="btn" disabled>Save Changes</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 PDF Tools. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/terms">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="{{ url_for('static', filename='Organize/organize_pdf_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='/Theme/theme_toggle.js') }}"></script>
+</body>
+</html>
